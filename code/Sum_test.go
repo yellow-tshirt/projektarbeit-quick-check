@@ -1,6 +1,5 @@
 package main
 import (
-
 	"testing"
 	"testing/quick"
 	"github.com/leanovate/gopter"
@@ -10,7 +9,7 @@ import (
 //naming: sth_test.go
 //First word is test
 //Only parameter t *testing.T
-func TestSum(t *testing.T){
+func TestSumQuick(t *testing.T){
 	//conventional test
 	total := Sum(5,5)
 	if total != 10 {
@@ -44,26 +43,29 @@ func TestSum(t *testing.T){
 		t.Error(err)
 	}
 	//============
+	//rapid
+	//============
+}
+
+func TestSumGoper(t *testing.T){
+	//============
 	//gopter
 	//============
 	parameters := gopter.DefaultTestParameters()
-	properties := gopter.NewProperties(parameters)
-	properties.Property("summe greater than individual values", prop.ForAll(
-		func(v float64) bool {
-			return math.Sqrt(v) >= 1
-		},
-		gen.Float64().SuchThat(func(x float64) bool { return x >= 1.0 }),
-	))
+	parameters.Rng.Seed(1234)
 
-	properties.Property("identity", prop.ForAll(
-		func(v float64) bool {
-			r := math.Sqrt(v)
-			return math.Abs(r*r-v) < 1e-10*v
+	properties := gopter.NewProperties(parameters)
+
+	properties.Property("gopter: sum always greater", prop.ForAll(
+		func(a int, b int) bool {
+			return Sum(a,b) >= a && Sum(a,b) >= b
 		},
-		gen.Float64().SuchThat(func(x float64) bool { return x >= 0.0 }),
+		gen.Int(),
+		gen.Int(),
 	))
 	properties.TestingRun(t)
-	//============
-	//rapid
-	//============
+}
+
+func TestRapid(t *testing.T){
+	
 }

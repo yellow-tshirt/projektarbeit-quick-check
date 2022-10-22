@@ -21,14 +21,13 @@
 ## Bewertung
 ### Quick
  - in standard testing libary
- - viel ressourcen
- - simpelsten interface zum programmieren
+ - lots of resources
+ - ease of use
 ### Rapid
  - more control over generation
  - minimizes failing test case
- - state machine based testing supported
 ### Gopter
- - schönen output
- - viel overhead
+ - clean output
+ - much code overhead
 
 ## Interessante Beispiele
