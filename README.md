@@ -31,3 +31,5 @@
  - much code overhead
 
 ## Interessante Beispiele
+- usable for all unit tests
+- generating input when testing against an api
