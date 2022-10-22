@@ -13,7 +13,8 @@
   - https://blog.gopheracademy.com/advent-2017/property-based-testing/
   - https://earthly.dev/blog/property-based-testing/
   
-### Rapid https://github.com/flyingmutant/rapid
+### Rapid 
+  - https://github.com/flyingmutant/rapid
 ### gopter 
   - https://github.com/leanovate/gopter
   - https://pkg.go.dev/github.com/leanovate/gopter?utm_source=godoc
