@@ -8,12 +8,15 @@ import (
 	"testing/quick"
 )
 
-func TestSumQuick(t *testing.T) {
+func TestSumNormal(t *testing.T) {
 	total := Sum(5, 5)
 	if total != 10 {
 		t.Errorf("Sum was incorrect, got: %d, want: %d", total, 10)
 	}
-	p := func(a int, b int) bool {
+}
+
+func TestSumQuick(t *testing.T) {
+	sumGreaterProperty := func(a int, b int) bool {
 		return Sum(a, b) >= a || Sum(a, b) >= b
 	}
 	identityElementProperty := func(a int) bool {
@@ -21,7 +24,7 @@ func TestSumQuick(t *testing.T) {
 		right := Sum(0, a)
 		return left == a && right == a && left == right
 	}
-	err := quick.Check(p, nil)
+	err := quick.Check(sumGreaterProperty, nil)
 	if err != nil {
 		t.Error(err)
 	}
