@@ -1,10 +1,9 @@
 # projektarbeit-quick-check
+## allgemein
+Implementierung am Beispiel Liste
 ## todos
-- welche quick check für go varianten gibt es
-- wie gut sind diese?
-- quellen sammeln
-- sinnvolle interessante beispiele wo quicksort eingesetzt wird
-- evtl eigene implementierung
+- implement list
+- generate list and nodes
 
 ## Verfügbare Go Implementierungen
 ### Quick
