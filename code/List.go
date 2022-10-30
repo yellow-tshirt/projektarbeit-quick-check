@@ -1,7 +1,7 @@
 package main
 
 import (
-
+	"math/rand"
 	"fmt"
 	"errors"
 )
@@ -54,7 +54,6 @@ func (L *List) Pop() (int, error) {
 	return -1, errors.New("cannot pop from empty list")
 }
 
-
 func (l *List) Display() {
 	list := l.head
 	for list != nil {
@@ -68,6 +67,15 @@ func (l *List) Display() {
 	fmt.Println()
 }
 
+func (L *List) Generate(rand *rand.Rand, size int) List{
+	var numberOfNodes int = rand.Intn(100)
+	var generatedList List = List{}
+	for i:= 0; i < numberOfNodes; i++{
+		var valueToAdd = rand.Int()
+		generatedList.Insert(valueToAdd)
+	}
+	return generatedList
+}
 
 func main() {
 	fmt.Println("===Lists===")
