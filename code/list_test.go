@@ -5,6 +5,7 @@ import (
 	"testing"
 	"testing/quick"
 	"reflect"
+	"fmt"
 )
 
 func TestList(t *testing.T) {
@@ -16,15 +17,34 @@ func TestList(t *testing.T) {
 	}
 	reverseSameSizeProperty := func(L List) bool {
 		var size = L.Size()
-		L.Display()
 		L.Reverse()
 		var sizeR = L.Size()
-		L.Display()
 		return size == sizeR
 	}
-	
+	firstBecomesLastProperty := func(L List) bool {
+		if(L.Size() >=1){
+			var first, _ = L.GetAtIndex(0)
+			var last, _ = L.GetAtIndex(L.Size()-1)
+			L.Reverse()
+			var firstR, _ = L.GetAtIndex(0)
+			var lastR, _ = L.GetAtIndex(L.Size()-1)
+			var erg = first == lastR && last == firstR
+			if erg{
+				return true
+			}else{
+				fmt.Printf("first: %d, lastR: %d, last: %d, firstR: %d\n", first, lastR, last, firstR)
+				return false
+			}
+		}else{
+			return true
+		}
+	}
 	err := quick.Check(reverseSameSizeProperty, &c)
 	if err != nil {
 		t.Error(err)
+	}
+	err2 := quick.Check(firstBecomesLastProperty, &c)
+	if err2 != nil {
+		t.Error(err2)
 	}
 }

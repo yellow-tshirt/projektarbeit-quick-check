@@ -54,6 +54,18 @@ func (L *List) Pop() (int, error) {
 	return -1, errors.New("cannot pop from empty list")
 }
 
+func (L *List) GetAtIndex(index int ) (int, error) {
+	if(index >= L.Size() || index < 0){
+		return -1, errors.New("index out of bound")
+	}
+	list := L.head
+	for i:=0; i <index; i++ {
+		list = list.next
+	}
+	return list.value, nil
+}
+
+
 func (l *List) Display() {
 	list := l.head
 	for list != nil {
@@ -89,9 +101,15 @@ func randList(r *rand.Rand) List {
 
 
 
+
+
 func main() {
 	fmt.Println("===Lists===")
-	var myList List = randList(&rand.Rand{})
-	myList.Display()
-	fmt.Println(myList.Size())
+	var myList List = List{}
+	myList.Insert(1)
+	myList.Insert(2)
+	myList.Insert(3)
+	myList.Reverse()
+	fmt.Println(myList.GetAtIndex(0))
+	fmt.Println(myList.GetAtIndex(myList.Size()-1))
 }
