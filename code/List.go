@@ -67,26 +67,31 @@ func (l *List) Display() {
 	fmt.Println()
 }
 
-func (L *List) Generate(rand *rand.Rand, size int) List{
-	var numberOfNodes int = rand.Intn(100)
-	var generatedList List = List{}
-	for i:= 0; i < numberOfNodes; i++{
-		var valueToAdd = rand.Int()
-		generatedList.Insert(valueToAdd)
+
+func (l *List) Size() int {
+	var size int = 0
+	list := l.head
+	for list != nil {
+		size++
+		list = list.next
 	}
-	return generatedList
+	return size
 }
+
+func randList(r *rand.Rand) List {
+	var randomList List = List{}
+	var listLength int = rand.Intn(100);
+	for i:=0; i<listLength;i++{
+		randomList.Insert(rand.Int())
+	}
+	return randomList
+}
+
+
 
 func main() {
 	fmt.Println("===Lists===")
-	var myList List = List{}
-	myList.Insert(1)
-	myList.Insert(2)
-	myList.Insert(3)
-	myList.Insert(4)
-	myList.Insert(5)
-	myList.Insert(6)
-	myList.Pop()
-	myList.Reverse()
+	var myList List = randList(&rand.Rand{})
 	myList.Display()
+	fmt.Println(myList.Size())
 }
