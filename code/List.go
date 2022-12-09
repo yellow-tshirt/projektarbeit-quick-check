@@ -44,7 +44,6 @@ func (L *List) Reverse() {
 	L.head = newList.head
 }
 
-
 func (L *List) Pop() (int, error) {
 	if(L.head != nil){
 		var currentHead *Node = L.head
@@ -65,7 +64,6 @@ func (L *List) GetAtIndex(index int ) (int, error) {
 	return list.value, nil
 }
 
-
 func (l *List) Display() {
 	list := l.head
 	for list != nil {
@@ -78,7 +76,6 @@ func (l *List) Display() {
 	}
 	fmt.Println()
 }
-
 
 func (l *List) Size() int {
 	var size int = 0
