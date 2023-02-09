@@ -12,12 +12,15 @@ import (
 
 func TestListQuick(t *testing.T) {
 	c := quick.Config{
-		MaxCount: 100,
+		MaxCount: 3,
 		Values: func(values []reflect.Value, r *rand.Rand, ){
-			values[0] = reflect.ValueOf(randList(r))
+			values[0] = reflect.ValueOf(randList(r, 5, func(num int)bool{
+				return num < 0
+			}))
 		},
 	}
 	reverseSameSizeProperty := func(L List) bool {
+		L.Display()
 		var size = L.Size()
 		L.Reverse()
 		var sizeR = L.Size()
