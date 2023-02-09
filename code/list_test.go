@@ -13,7 +13,7 @@ import (
 func TestListQuick(t *testing.T) {
 	c := quick.Config{
 		MaxCount: 100,
-		Values: func(values []reflect.Value, r *rand.Rand){
+		Values: func(values []reflect.Value, r *rand.Rand, ){
 			values[0] = reflect.ValueOf(randList(r))
 		},
 	}
@@ -50,28 +50,3 @@ func TestListQuick(t *testing.T) {
 		t.Error(err2)
 	}
 }
-
-// func randListGopterGen() gopter.Gen {
-// 	var randomList List = List{}
-// 	var listLength int = rand.Intn(100);
-// 	for i:=0; i<listLength;i++{
-// 		randomList.Insert(rand.Int())
-// 	}
-// 	return gopter.NewGenResult(randList, gopter.NoShrinker)
-// }
-
-// func TestListGoper(t *testing.T){
-// 	parameters := gopter.DefaultTestParameters()
-// 	parameters.Rng.Seed(1234)
-// 	properties := gopter.NewProperties(parameters)
-// 	properties.Property("gopter: same size", prop.ForAll(
-// 		func(L List) bool {
-// 			var size = L.Size()
-// 			L.Reverse()
-// 			var sizeR = L.Size()
-// 			return size == sizeR
-// 		},
-// 		randListGopterGen()),
-// 	)
-// 	properties.TestingRun(t)
-// }
