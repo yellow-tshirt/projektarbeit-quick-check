@@ -2,8 +2,10 @@
 ## allgemein
 Implementierung am Beispiel Liste
 ## todos
-- implement list
-- generate list and nodes
+- Die "gleich" Liste in Haskell zu schreiben
+- Diese mit Quickcheck (Haskell) unter der Verwendungen von Anforderungen an die Liste zu testen.
+- Meinen Generator so erweitern, dass er Anforderungen an die Liste aktzeptiert und nur Listen ausgibt, die den anforderungen entsprechen (z.B. List.length() > 0)
+- Die beiden Implementierungen bezüglich ihrerer Ergonomie für den Programmierer und ihrer Mächtigkeit vergleichen.
 
 ## Verfügbare Go Implementierungen
 ### Quick
@@ -29,7 +31,3 @@ Implementierung am Beispiel Liste
 ### Gopter
  - clean output
  - much code overhead
-
-## Interessante Beispiele
-- usable for all unit tests
-- generating input when testing against an api

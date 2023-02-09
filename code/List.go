@@ -87,18 +87,20 @@ func (l *List) Size() int {
 	return size
 }
 
-func randList(r *rand.Rand) List {
+func randList(r *rand.Rand, listLength int, criteria func(num int) bool) List {
+	if(listLength < 1){
+		errors.New("listLength needs to be greater than 0")
+	}
 	var randomList List = List{}
-	var listLength int = rand.Intn(100);
+	var numberToAdd = rand.Int();
 	for i:=0; i<listLength;i++{
-		randomList.Insert(rand.Int())
+		for(!criteria(numberToAdd)){
+			numberToAdd = rand.Int()
+		}
+		randomList.Insert(numberToAdd)
 	}
 	return randomList
 }
-
-
-
-
 
 func main() {
 	fmt.Println("===Lists===")
@@ -107,6 +109,6 @@ func main() {
 	myList.Insert(2)
 	myList.Insert(3)
 	myList.Reverse()
-	fmt.Println(myList.GetAtIndex(0))
-	fmt.Println(myList.GetAtIndex(myList.Size()-1))
+	myList.Display()
+	fmt.Printf("\n")
 }
