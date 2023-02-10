@@ -15,16 +15,9 @@ addToListE :: Int -> MyList -> MyList
 addToListE x Empty = Cons x Empty
 addToListE x (Cons y ys) = Cons y (addToListE x ys)
 
---addToListE :: Int -> [Int] -> [Int]
---addToListE x xs = xs ++[x]
-
 reverseList :: MyList -> MyList
 reverseList Empty = Empty
 reverseList (Cons x xs) = addToListE x (reverseList xs)
-
-appendList :: MyList -> MyList -> MyList
-appendList Empty ys = ys
-appendList (Cons x xs) ys = Cons x (appendList xs ys)
 
 listSize :: MyList -> Int
 listSize Empty = 0
@@ -41,5 +34,6 @@ main = do
     let list3 = addToListE 3 list2
     let listr = reverseList list3
     putStrLn(show listr)
+    putStrLn("Size:"++ show(listSize listr))
 
     
