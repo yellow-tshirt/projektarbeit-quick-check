@@ -1,25 +1,45 @@
 main :: IO ()
+--import Test.QuickCheck
+
+--myList
+data MyList = Empty | Cons Int MyList deriving (Eq)
+instance Show MyList where
+  show Empty = ""
+  show (Cons x xs) = show x ++ " " ++ show xs
 
 --my functions
-addToListB :: Int -> [Int] -> [Int]
-addToListB x xs = x :xs
+addToListB :: Int -> MyList -> MyList
+addToListB x xs = Cons x xs
 
-addToListE :: Int -> [Int] -> [Int]
-addToListE x xs = xs ++[x]
+addToListE :: Int -> MyList -> MyList
+addToListE x Empty = Cons x Empty
+addToListE x (Cons y ys) = Cons y (addToListE x ys)
 
-reverseList :: [Int] -> [Int]
-reverseList [] = []
-reverseList (x:xs) = reverseList xs ++ [x]
+--addToListE :: Int -> [Int] -> [Int]
+--addToListE x xs = xs ++[x]
 
-listSize :: [Int] -> Int
-listSize [] = 0
-listSize (x:xs) = 1 + listSize xs
+reverseList :: MyList -> MyList
+reverseList Empty = Empty
+reverseList (Cons x xs) = addToListE x (reverseList xs)
+
+appendList :: MyList -> MyList -> MyList
+appendList Empty ys = ys
+appendList (Cons x xs) ys = Cons x (appendList xs ys)
+
+listSize :: MyList -> Int
+listSize Empty = 0
+listSize (Cons x xs) = 1 + listSize xs
 
 popFirst :: [Int] -> [Int]
 popFirst [] = []
 popFirst (x:xs) = xs
 
 main = do
-    let numbers = [1,2,3,4,5]
-    let newNumbers = reverseList numbers
-    putStrLn(show newNumbers)
+    putStrLn "Hello List"
+    let list = Cons 1 (Cons 2 Empty)
+    let list2 = addToListB 0 list
+    let list3 = addToListE 3 list2
+    let listr = reverseList list3
+    putStrLn(show listr)
+
+    
