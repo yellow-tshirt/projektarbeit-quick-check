@@ -23,9 +23,9 @@ listSize :: MyList -> Int
 listSize Empty = 0
 listSize (Cons x xs) = 1 + listSize xs
 
-popFirst :: [Int] -> [Int]
-popFirst [] = []
-popFirst (x:xs) = xs
+popFirst :: MyList -> MyList
+popFirst Empty = Empty
+popFirst (Cons x xs) = xs
 
 main = do
     putStrLn "Hello List"
@@ -35,5 +35,8 @@ main = do
     let listr = reverseList list3
     putStrLn(show listr)
     putStrLn("Size:"++ show(listSize listr))
+    let listp = popFirst listr
+    putStrLn(show listp)
+    putStrLn("Size:"++ show(listSize listp))
 
     
