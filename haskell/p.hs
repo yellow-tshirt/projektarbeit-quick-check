@@ -1,11 +1,20 @@
+import Test.QuickCheck
 main :: IO ()
---import Test.QuickCheck
 
 --myList
 data MyList = Empty | Cons Int MyList deriving (Eq)
 instance Show MyList where
   show Empty = ""
   show (Cons x xs) = show x ++ " " ++ show xs
+
+fromList :: [Int] -> MyList
+fromList [] = Empty
+fromList (x:xs) = Cons x (fromList xs)
+
+instance Arbitrary MyList where
+  arbitrary = do
+    xs <- listOf arbitrary
+    return (fromList xs)
 
 --my functions
 addToListB :: Int -> MyList -> MyList
@@ -27,6 +36,12 @@ popFirst :: MyList -> MyList
 popFirst Empty = Empty
 popFirst (Cons x xs) = xs
 
+prop1_addToListB :: Int -> MyList -> Bool
+prop1_addToListB x xs = (listSize (addToListB x xs) == (listSize xs) + 1)
+
+prop_addToList x = forAll (resize 100 arbitrary) $ \xs ->
+    listSize (addToListB x (fromList xs)) == (listSize (fromList xs)) + 1
+
 main = do
     putStrLn "Hello List"
     let list = Cons 1 (Cons 2 Empty)
@@ -38,5 +53,7 @@ main = do
     let listp = popFirst listr
     putStrLn(show listp)
     putStrLn("Size:"++ show(listSize listp))
-
+    putStrLn "=======QuickCheck======"
+    quickCheck prop1_addToListB
+    quickCheck prop_addToList
     
