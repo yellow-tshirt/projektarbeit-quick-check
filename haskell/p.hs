@@ -36,11 +36,14 @@ popFirst :: MyList -> MyList
 popFirst Empty = Empty
 popFirst (Cons x xs) = xs
 
-prop1_addToListB :: Int -> MyList -> Bool
-prop1_addToListB x xs = (listSize (addToListB x xs) == (listSize xs) + 1)
+prop1_addToListB :: Int -> MyList -> Property
+prop1_addToListB x xs = listSize xs >= 0 ==>(listSize (addToListB x xs) == (listSize xs) + 1)
 
 prop_popFirst :: MyList -> Property
 prop_popFirst xs = listSize xs > 0 ==> (listSize (popFirst xs) == (listSize xs) - 1)
+
+prop_reverseList :: MyList -> Bool
+prop_reverseList xs = reverseList (reverseList xs) == xs
 
 main = do
     putStrLn "Hello List"
@@ -55,4 +58,7 @@ main = do
     putStrLn("Size:"++ show(listSize listp))
     putStrLn "=======QuickCheck======"
     quickCheck prop1_addToListB
+    --hier muss nochmal extra gecheckt werden size > 0
+    --bei komplexeren typen ist das der beste Ansatz
     quickCheck prop_popFirst
+    quickCheck prop_reverseList
