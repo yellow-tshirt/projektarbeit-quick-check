@@ -36,6 +36,10 @@ popFirst :: MyList -> MyList
 popFirst Empty = Empty
 popFirst (Cons x xs) = xs
 
+sumMyList :: MyList -> Int
+sumMyList Empty = 0
+sumMyList (Cons x xs) = x + (sumMyList xs)
+
 prop1_addToListB :: Int -> MyList -> Property
 prop1_addToListB x xs = listSize xs >= 0 ==>(listSize (addToListB x xs) == (listSize xs) + 1)
 
@@ -44,6 +48,8 @@ prop_popFirst xs = listSize xs > 0 ==> (listSize (popFirst xs) == (listSize xs) 
 
 prop_reverseList :: MyList -> Bool
 prop_reverseList xs = reverseList (reverseList xs) == xs
+
+--prop_sum :: MyList -> Property
 
 main = do
     putStrLn "Hello List"
@@ -56,6 +62,8 @@ main = do
     let listp = popFirst listr
     putStrLn(show listp)
     putStrLn("Size:"++ show(listSize listp))
+    putStrLn("Sum:"++ show(sumMyList listp))
+  
     putStrLn "=======QuickCheck======"
     quickCheck prop1_addToListB
     --hier muss nochmal extra gecheckt werden size > 0
