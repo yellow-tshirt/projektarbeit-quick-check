@@ -39,8 +39,8 @@ popFirst (Cons x xs) = xs
 prop1_addToListB :: Int -> MyList -> Bool
 prop1_addToListB x xs = (listSize (addToListB x xs) == (listSize xs) + 1)
 
-prop_addToList x = forAll (resize 100 arbitrary) $ \xs ->
-    listSize (addToListB x (fromList xs)) == (listSize (fromList xs)) + 1
+prop_popFirst :: MyList -> Property
+prop_popFirst xs = listSize xs > 0 ==> (listSize (popFirst xs) == (listSize xs) - 1)
 
 main = do
     putStrLn "Hello List"
@@ -55,5 +55,4 @@ main = do
     putStrLn("Size:"++ show(listSize listp))
     putStrLn "=======QuickCheck======"
     quickCheck prop1_addToListB
-    quickCheck prop_addToList
-    
+    quickCheck prop_popFirst
