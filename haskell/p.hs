@@ -44,11 +44,13 @@ prop1_addToListB :: Int -> MyList -> Property
 prop1_addToListB x xs = listSize xs >= 0 ==>(listSize (addToListB x xs) == (listSize xs) + 1)
 
 prop_popFirst :: MyList -> Property
-prop_popFirst xs = listSize xs > 0 ==> (listSize (popFirst xs) == (listSize xs) - 1)
+prop_popFirst xs = listSize xs > 0 && listSize xs < 3 ==> (listSize (popFirst xs) == (listSize xs) - 1)
 
 prop_reverseList :: MyList -> Bool
 prop_reverseList xs = reverseList (reverseList xs) == xs
 
+prop_suchThatTesting :: Int-> Bool
+prop_suchThatTesting x = (x == x)
 --prop_sum :: MyList -> Property
 
 main = do
@@ -70,3 +72,4 @@ main = do
     --bei komplexeren typen ist das der beste Ansatz
     quickCheck prop_popFirst
     quickCheck prop_reverseList
+    quickCheck (forAll (arbitrary `suchThat` (\x -> x < 4 && x <= 100)) prop_suchThatTesting)

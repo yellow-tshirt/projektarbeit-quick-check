@@ -1,11 +1,6 @@
 # projektarbeit-quick-check
 ## allgemein
 Implementierung am Beispiel Liste
-## todos
-- Die "gleich" Liste in Haskell zu schreiben
-- Diese mit Quickcheck (Haskell) unter der Verwendungen von Anforderungen an die Liste zu testen.
-- Meinen Generator so erweitern, dass er Anforderungen an die Liste aktzeptiert und nur Listen ausgibt, die den anforderungen entsprechen (z.B. List.length() > 0)
-- Die beiden Implementierungen bezüglich ihrerer Ergonomie für den Programmierer und ihrer Mächtigkeit vergleichen.
 
 ## Verfügbare Go Implementierungen
 ### Quick
