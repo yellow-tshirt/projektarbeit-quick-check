@@ -1,6 +1,6 @@
 # projektarbeit-quick-check
-## allgemein
-Implementierung am Beispiel Liste
+## how to run the haskell code
+## how to run the java code
 
 ## Verfügbare Go Implementierungen
 ### Quick

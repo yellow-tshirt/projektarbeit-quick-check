@@ -1,4 +1,6 @@
 import Test.QuickCheck
+import Debug.Trace
+
 main :: IO ()
 
 --myList
@@ -44,32 +46,22 @@ prop1_addToListB :: Int -> MyList -> Property
 prop1_addToListB x xs = listSize xs >= 0 ==>(listSize (addToListB x xs) == (listSize xs) + 1)
 
 prop_popFirst :: MyList -> Property
-prop_popFirst xs = listSize xs > 0 && listSize xs < 3 ==> (listSize (popFirst xs) == (listSize xs) - 1)
+prop_popFirst xs = listSize xs > 0 && listSize xs < 50 ==> (listSize (popFirst xs) == (listSize xs) - 1)
 
 prop_reverseList :: MyList -> Bool
 prop_reverseList xs = reverseList (reverseList xs) == xs
 
-prop_suchThatTesting :: Int-> Bool
-prop_suchThatTesting x = (x == x)
---prop_sum :: MyList -> Property
+--prop_suchThatTesting :: Int -> Property
+prop_suchThatTesting :: Int -> Bool
+prop_suchThatTesting x = trace (show x) $ (x < 0 && x > -100)
+--prop_suchThatTesting x = (x >= 4 && x <= 100)
+--prop_suchThatTesting x = x <= 50 && x > 3 ==> (x >= 4 && x <= 100)
 
 main = do
-    putStrLn "Hello List"
-    let list = Cons 1 (Cons 2 Empty)
-    let list2 = addToListB 0 list
-    let list3 = addToListE 3 list2
-    let listr = reverseList list3
-    putStrLn(show listr)
-    putStrLn("Size:"++ show(listSize listr))
-    let listp = popFirst listr
-    putStrLn(show listp)
-    putStrLn("Size:"++ show(listSize listp))
-    putStrLn("Sum:"++ show(sumMyList listp))
-  
     putStrLn "=======QuickCheck======"
     quickCheck prop1_addToListB
-    --hier muss nochmal extra gecheckt werden size > 0
-    --bei komplexeren typen ist das der beste Ansatz
+    --via constraint => breaks after too many attempts
     quickCheck prop_popFirst
-    quickCheck prop_reverseList
-    quickCheck (forAll (arbitrary `suchThat` (\x -> x < 4 && x <= 100)) prop_suchThatTesting)
+    --bad suchthat => program doesn't end
+    --quickCheck (forAll (arbitrary `suchThat` (\x -> x > 1 && x < 1)) prop_suchThatTesting)
+
