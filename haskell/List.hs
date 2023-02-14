@@ -48,20 +48,24 @@ prop1_addToListB x xs = listSize xs >= 0 ==>(listSize (addToListB x xs) == (list
 prop_popFirst :: MyList -> Property
 prop_popFirst xs = listSize xs > 0 && listSize xs < 50 ==> (listSize (popFirst xs) == (listSize xs) - 1)
 
+prop_popFirstSuchThat :: MyList -> Bool
+prop_popFirstSuchThat xs = (listSize (popFirst xs) == (listSize xs) - 1)
+
+prop_generatedLists :: MyList -> Bool
+prop_generatedLists xs = trace(show xs) $ True
+
 prop_reverseList :: MyList -> Bool
 prop_reverseList xs = reverseList (reverseList xs) == xs
 
---prop_suchThatTesting :: Int -> Property
-prop_suchThatTesting :: Int -> Bool
-prop_suchThatTesting x = trace (show x) $ (x < 0 && x > -100)
---prop_suchThatTesting x = (x >= 4 && x <= 100)
---prop_suchThatTesting x = x <= 50 && x > 3 ==> (x >= 4 && x <= 100)
-
 main = do
+    --can use this in order to "spy" on the generated values and check if they look like you expected them to
+    --quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs == 3)) prop_generatedLists)
     putStrLn "=======QuickCheck======"
     quickCheck prop1_addToListB
     --via constraint => breaks after too many attempts
     quickCheck prop_popFirst
-    --bad suchthat => program doesn't end
-    --quickCheck (forAll (arbitrary `suchThat` (\x -> x > 1 && x < 1)) prop_suchThatTesting)
+    --via suchThat => unlimited tries to find value
+    quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs > 0))prop_popFirstSuchThat)
+
+
 
