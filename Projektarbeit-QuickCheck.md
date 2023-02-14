@@ -9,6 +9,7 @@ Darüber hinaus werden wir einige praktische Beispiele durchgehen, um zu zeigen,
 QuickCheck ist ein automatisiertes Testwerkzeug für Funktions- und Prop-basierte Testfälle in Haskell. Es wurde von Koen Claessen und John Hughes entwickelt und ist eine erweiterte Form der Unit-Tests.
 QuickCheck generiert automatisch eine Vielzahl von Testdaten, die an die Properties übergeben werden, um sicherzustellen, dass sie unter verschiedenen Bedingungen korrekt arbeiten. Wenn eine Property fehlschlägt, generiert QuickCheck einen kleinsten Testfall, bei dem die Property fehlschlägt, um es dem Entwickler zu erleichtern, den Fehler zu finden und zu beheben.
 ## QuickCheck in Haskell
+
 ## QuickCheck in Java
 ## Vergleich
 ## Reflektion
