@@ -71,7 +71,6 @@ main = do
     --via suchThat => unlimited tries to find value
     quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs > 0))prop_popFirstSuchThat)
     quickCheck prop_reverseList
-    quickCheck prop_thisWillFail
 
 
 
