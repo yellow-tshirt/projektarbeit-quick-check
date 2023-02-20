@@ -51,21 +51,27 @@ prop_popFirst xs = listSize xs > 0 && listSize xs < 50 ==> (listSize (popFirst x
 prop_popFirstSuchThat :: MyList -> Bool
 prop_popFirstSuchThat xs = (listSize (popFirst xs) == (listSize xs) - 1)
 
+--can use this in order to "spy" on the generated values and check if they look like you expected them to
 prop_generatedLists :: MyList -> Bool
 prop_generatedLists xs = trace(show xs) $ True
 
 prop_reverseList :: MyList -> Bool
 prop_reverseList xs = reverseList (reverseList xs) == xs
 
+prop_thisWillFail :: MyList -> Bool
+prop_thisWillFail xs = trace(show xs) $ xs == reverseList xs
+
 main = do
-    --can use this in order to "spy" on the generated values and check if they look like you expected them to
     --quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs == 3)) prop_generatedLists)
     putStrLn "=======QuickCheck======"
+    --quickCheck prop_generatedLists
     quickCheck prop1_addToListB
     --via constraint => breaks after too many attempts
     quickCheck prop_popFirst
     --via suchThat => unlimited tries to find value
     quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs > 0))prop_popFirstSuchThat)
+    quickCheck prop_reverseList
+    quickCheck prop_thisWillFail
 
 
 
