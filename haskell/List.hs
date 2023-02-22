@@ -33,13 +33,13 @@ reverseList (Cons x xs) = addToListE x (reverseList xs)
 reverseListEasyBug :: MyList -> MyList
 reverseListEasyBug Empty = Empty
 reverseListEasyBug (Cons x (Cons y Empty)) = Cons x Empty
-reverseListEasyBug (Cons x xs) = (reverseListEasyBug xs)
+reverseListEasyBug (Cons x xs) = addToListE x (reverseListEasyBug xs)
 
 reverseListBug :: MyList -> MyList
 reverseListBug Empty = Empty
 reverseListBug (Cons x xs)
     | listSize (Cons x xs) >= 1000 = Empty
-    | otherwise = addToListE x (reverseList xs)
+    | otherwise = addToListE x (reverseListBug xs)
 
 listSize :: MyList -> Int
 listSize Empty = 0
@@ -86,14 +86,14 @@ main = do
     --quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs == 3)) prop_generatedLists)
     putStrLn "=======QuickCheck======"
     --quickCheck prop_generatedLists
-    --quickCheck prop1_addToListB
-    --quickCheck prop_popFirst
-    --quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs > 0))prop_popFirstSuchThat)
-    --quickCheck prop_reverseList
-    --quickCheck prop_sum
+    quickCheck prop1_addToListB
+    quickCheck prop_popFirst
+    quickCheck (forAll (arbitrary `suchThat` (\xs -> listSize xs > 0))prop_popFirstSuchThat)
+    quickCheck prop_reverseList
+    quickCheck prop_sum
     quickCheck prop_reverseListEasyBug
-    --quickCheck prop_reverseListBug
-    --quickCheck (withMaxSuccess 10000 prop_reverseListBug)
+    quickCheck prop_reverseListBug
+    quickCheck (withMaxSuccess 1000 prop_reverseListBug)
 
 
 
