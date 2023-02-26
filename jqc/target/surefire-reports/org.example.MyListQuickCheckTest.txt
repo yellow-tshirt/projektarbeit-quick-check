@@ -1,17 +1,31 @@
 -------------------------------------------------------------------------------
 Test set: org.example.MyListQuickCheckTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.637 sec <<< FAILURE!
-sumAlwaysGreaterThanAllItsElements(org.example.MyListQuickCheckTest)  Time elapsed: 0.019 sec  <<< FAILURE!
-java.lang.AssertionError: Property sumAlwaysGreaterThanAllItsElements falsified.
-Expected: a value equal to or greater than <1984106812>
-     but: <1828315155> was less than <1984106812>
-Args: [org.example.MyList@1442d7b5]
-Seeds: [-6882922939957301488]
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.74 sec <<< FAILURE!
+doubleReverseIsOriginalEasyBugQCGen(org.example.MyListQuickCheckTest)  Time elapsed: 0.169 sec  <<< FAILURE!
+java.lang.AssertionError: Property doubleReverseIsOriginalEasyBugQCGen falsified via shrinking: 
+Expected: <0, 1, >
+     but: was <0, >
+Shrunken args: [[0, 0]]
+Original failure message: [
+Expected: <0, 1, >
+     but: was <0, >]
+Original args: [[-155770462, -794452357]]
+Seeds: [2943620143226439947]
 
-	at com.pholser.junit.quickcheck.runner.PropertyFalsified.counterexampleFound(PropertyFalsified.java:42)
-	at com.pholser.junit.quickcheck.runner.ShrinkNode.fail(ShrinkNode.java:117)
-	at com.pholser.junit.quickcheck.runner.Shrinker.shrink(Shrinker.java:103)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+	at org.example.MyListQuickCheckTest.doubleReverseIsOriginalEasyBugQCGen(MyListQuickCheckTest.java:31)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.pholser.junit.quickcheck.runner.PropertyVerifier$2.evaluate(PropertyVerifier.java:104)
+	at com.pholser.junit.quickcheck.runner.PropertyVerifier$1.evaluate(PropertyVerifier.java:76)
+	at com.pholser.junit.quickcheck.runner.PropertyVerifier.verify(PropertyVerifier.java:68)
+	at com.pholser.junit.quickcheck.runner.ShrinkNode.verifyProperty(ShrinkNode.java:98)
+	at com.pholser.junit.quickcheck.runner.Shrinker.shrink(Shrinker.java:82)
 	at com.pholser.junit.quickcheck.runner.PropertyStatement.shrink(PropertyStatement.java:158)
 	at com.pholser.junit.quickcheck.runner.PropertyStatement.lambda$property$38(PropertyStatement.java:132)
 	at com.pholser.junit.quickcheck.runner.PropertyVerifier$1.evaluate(PropertyVerifier.java:86)
@@ -38,11 +52,11 @@ Seeds: [-6882922939957301488]
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 Caused by: java.lang.AssertionError: 
-Expected: a value equal to or greater than <1984106812>
-     but: <1828315155> was less than <1984106812>
+Expected: <0, 1, >
+     but: was <0, >
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-	at org.example.MyListQuickCheckTest.sumAlwaysGreaterThanAllItsElements(MyListQuickCheckTest.java:45)
+	at org.example.MyListQuickCheckTest.doubleReverseIsOriginalEasyBugQCGen(MyListQuickCheckTest.java:31)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)

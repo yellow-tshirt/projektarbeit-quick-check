@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="1" name="org.example.MyListQuickCheckTest" time="1.103" errors="0" skipped="0">
+<testsuite tests="1" failures="1" name="org.example.MyListQuickCheckTest" time="0.169" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-18-openjdk-amd64/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/mario/Desktop/projektarbeit-quick-check/jqc"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/mario/Desktop/jqc"/>
     <property name="java.vm.vendor" value="Private Build"/>
     <property name="java.vendor.url" value="Unknown"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="test" value="MyListQuickCheckTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/mario/Desktop/projektarbeit-quick-check/jqc"/>
+    <property name="user.dir" value="/home/mario/Desktop/jqc"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
     <property name="os.arch" value="amd64"/>
@@ -58,24 +58,39 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="org.example.MyListQuickCheckTest" name="popAssume" time="0.912"/>
-  <testcase classname="org.example.MyListQuickCheckTest" name="reverseHasSameLength" time="0.088"/>
-  <testcase classname="org.example.MyListQuickCheckTest" name="insertAddsElement" time="0.084"/>
-  <testcase classname="org.example.MyListQuickCheckTest" name="sumAlwaysGreaterThanAllItsElements" time="0.019">
-    <failure message="Property sumAlwaysGreaterThanAllItsElements falsified.
-Expected: a value equal to or greater than &lt;1984106812&gt;
-     but: &lt;1828315155&gt; was less than &lt;1984106812&gt;
-Args: [org.example.MyList@1442d7b5]
-Seeds: [-6882922939957301488]
-" type="java.lang.AssertionError">java.lang.AssertionError: Property sumAlwaysGreaterThanAllItsElements falsified.
-Expected: a value equal to or greater than &lt;1984106812&gt;
-     but: &lt;1828315155&gt; was less than &lt;1984106812&gt;
-Args: [org.example.MyList@1442d7b5]
-Seeds: [-6882922939957301488]
+  <testcase classname="org.example.MyListQuickCheckTest" name="doubleReverseIsOriginalEasyBugQCGen" time="0.169">
+    <failure message="Property doubleReverseIsOriginalEasyBugQCGen falsified via shrinking: 
+Expected: &lt;0, 1, &gt;
+     but: was &lt;0, &gt;
+Shrunken args: [[0, 0]]
+Original failure message: [
+Expected: &lt;0, 1, &gt;
+     but: was &lt;0, &gt;]
+Original args: [[-155770462, -794452357]]
+Seeds: [2943620143226439947]
+" type="java.lang.AssertionError">java.lang.AssertionError: Property doubleReverseIsOriginalEasyBugQCGen falsified via shrinking: 
+Expected: &lt;0, 1, &gt;
+     but: was &lt;0, &gt;
+Shrunken args: [[0, 0]]
+Original failure message: [
+Expected: &lt;0, 1, &gt;
+     but: was &lt;0, &gt;]
+Original args: [[-155770462, -794452357]]
+Seeds: [2943620143226439947]
 
-	at com.pholser.junit.quickcheck.runner.PropertyFalsified.counterexampleFound(PropertyFalsified.java:42)
-	at com.pholser.junit.quickcheck.runner.ShrinkNode.fail(ShrinkNode.java:117)
-	at com.pholser.junit.quickcheck.runner.Shrinker.shrink(Shrinker.java:103)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+	at org.example.MyListQuickCheckTest.doubleReverseIsOriginalEasyBugQCGen(MyListQuickCheckTest.java:31)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.pholser.junit.quickcheck.runner.PropertyVerifier$2.evaluate(PropertyVerifier.java:104)
+	at com.pholser.junit.quickcheck.runner.PropertyVerifier$1.evaluate(PropertyVerifier.java:76)
+	at com.pholser.junit.quickcheck.runner.PropertyVerifier.verify(PropertyVerifier.java:68)
+	at com.pholser.junit.quickcheck.runner.ShrinkNode.verifyProperty(ShrinkNode.java:98)
+	at com.pholser.junit.quickcheck.runner.Shrinker.shrink(Shrinker.java:82)
 	at com.pholser.junit.quickcheck.runner.PropertyStatement.shrink(PropertyStatement.java:158)
 	at com.pholser.junit.quickcheck.runner.PropertyStatement.lambda$property$38(PropertyStatement.java:132)
 	at com.pholser.junit.quickcheck.runner.PropertyVerifier$1.evaluate(PropertyVerifier.java:86)
@@ -102,11 +117,11 @@ Seeds: [-6882922939957301488]
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 Caused by: java.lang.AssertionError: 
-Expected: a value equal to or greater than &lt;1984106812&gt;
-     but: &lt;1828315155&gt; was less than &lt;1984106812&gt;
+Expected: &lt;0, 1, &gt;
+     but: was &lt;0, &gt;
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-	at org.example.MyListQuickCheckTest.sumAlwaysGreaterThanAllItsElements(MyListQuickCheckTest.java:45)
+	at org.example.MyListQuickCheckTest.doubleReverseIsOriginalEasyBugQCGen(MyListQuickCheckTest.java:31)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)

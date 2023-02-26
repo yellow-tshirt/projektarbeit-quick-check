@@ -13,37 +13,28 @@ import static org.junit.Assume.assumeTrue;
 
 @RunWith(JUnitQuickcheck.class)
 public class MyListQuickCheckTest {
-    @Property()
-    public void reverseHasSameLength(@From(ListGenerator.class) MyList myList) {
-        assertThat(myList.size(), equalTo(myList.reverse().size()));
+    @Property
+    public void doubleReverseIsOriginal(@From(ListGenerator.class) MyList myList){
+        int size = myList.size();
+        MyList reversedTwice = myList.reverse().reverse();
+        assertThat(reversedTwice, equalTo(myList));
+    }
+    @Property(trials = 100)
+    public void doubleReverseIsOriginalEasyBug(@From(ListGenerator.class) MyList myList){
+        MyList reversedTwice = myList.reverseEasyBug().reverseEasyBug();
+        assertThat(reversedTwice, equalTo(myList));
+    }
+    @Property
+    public void doubleReverseIsOriginalBug(@From(ListGenerator.class) MyList myList){
+        MyList reversedTwice = myList.reverseBug().reverseBug();
+        assertThat(reversedTwice, equalTo(myList));
+    }
+    @Property
+    public void doubleReverseIsOriginalEasyBugQC(int[] array){
+        MyList myList = ListGenerator.generateFromIntArray(array);
+        MyList reversedTwice = myList.reverseEasyBug().reverseEasyBug();
+        assertThat(reversedTwice, equalTo(myList));
     }
 
-    //inRange is very accurate (though not as flexible), even better than suchThat because It's not filtered but generated
-    @Property()
-    public void insertAddsElement(@From(ListGenerator.class) MyList myList, @InRange(minInt = 9990, maxInt = 10000) int i){
-        assertThat(myList.size()+1, equalTo(myList.insert(i).size()));
-    }
-
-    //might want to increase trials for rare suchThat condition
-    @Property(trials = 1000)
-    public void popAssume(@From(ListGenerator.class) MyList myList) throws Exception {
-        //wrong property assumption => fail, this works like suchThat in Haskell
-        assumeTrue(myList.size() > 0);
-        int sizeBeforePop = myList.size();
-        myList.pop();
-        int sizeAfterPop = myList.size();
-        assertThat(sizeBeforePop-1,equalTo(sizeAfterPop));
-    }
-
-    @Property()
-    public void sumAlwaysGreaterThanAllItsElements(@From(ListGenerator.class) MyList myList) throws Exception{
-        assumeTrue(myList.size() > 0);
-        int sum = myList.sum();
-        while(myList.size() > 0){
-            int element = myList.pop();
-            //property should fail due to overflow being possible
-            assertThat(sum, greaterThanOrEqualTo(element));
-        }
-    }
 }
 

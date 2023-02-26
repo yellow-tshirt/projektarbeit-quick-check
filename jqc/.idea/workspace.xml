@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4df1a6ab-7011-4a8e-88ed-f152a9682f2a" name="Changes" comment="init">
+    <list default="true" id="4df1a6ab-7011-4a8e-88ed-f152a9682f2a" name="Changes" comment="adjusted display string">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ListGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ListGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ListQuickCheckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/MyListQuickCheckTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +42,113 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="JUnit.MyListQuickCheckTest">
+    <configuration name="MyListQuickCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jqc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MyListQuickCheckTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyListQuickCheckTest.doubleReverseIsOriginal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jqc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MyListQuickCheckTest" />
+      <option name="METHOD_NAME" value="doubleReverseIsOriginal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyListQuickCheckTest.doubleReverseIsOriginalBug" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jqc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MyListQuickCheckTest" />
+      <option name="METHOD_NAME" value="doubleReverseIsOriginalBug" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyListQuickCheckTest.doubleReverseIsOriginalEasyBug" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jqc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MyListQuickCheckTest" />
+      <option name="METHOD_NAME" value="doubleReverseIsOriginalEasyBug" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyListQuickCheckTest.doubleReverseIsOriginalEasyBugQCGen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jqc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MyListQuickCheckTest" />
+      <option name="METHOD_NAME" value="doubleReverseIsOriginalEasyBugQCGen" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MyListQuickCheckTest" />
+        <item itemvalue="JUnit.MyListQuickCheckTest.doubleReverseIsOriginalEasyBug" />
+        <item itemvalue="JUnit.MyListQuickCheckTest.doubleReverseIsOriginal" />
+        <item itemvalue="JUnit.MyListQuickCheckTest.doubleReverseIsOriginalEasyBugQCGen" />
+        <item itemvalue="JUnit.MyListQuickCheckTest.doubleReverseIsOriginalBug" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,6 +159,10 @@
       <updated>1676887271137</updated>
       <workItem from="1676887272521" duration="570000" />
       <workItem from="1676887873283" duration="8776000" />
+      <workItem from="1677064483737" duration="13752000" />
+      <workItem from="1677225590410" duration="13659000" />
+      <workItem from="1677316260796" duration="2859000" />
+      <workItem from="1677330128646" duration="729000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1676888545119</created>
@@ -81,7 +171,35 @@
       <option name="project" value="LOCAL" />
       <updated>1676888545119</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="go">
+      <created>1677080935586</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677080935586</updated>
+    </task>
+    <task id="LOCAL-00003" summary="implemented shrinking, adjust toString">
+      <created>1677248774467</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677248774467</updated>
+    </task>
+    <task id="LOCAL-00004" summary="implemented better gen strategy">
+      <created>1677250353240</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677250353240</updated>
+    </task>
+    <task id="LOCAL-00005" summary="adjusted display string">
+      <created>1677250844733</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677250844733</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,9 +207,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="go" />
+    <MESSAGE value="implemented shrinking, adjust toString" />
+    <MESSAGE value="implemented better gen strategy" />
+    <MESSAGE value="adjusted display string" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted display string" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/example/ListGenerator.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
